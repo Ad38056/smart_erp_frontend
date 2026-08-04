@@ -1,0 +1,90 @@
+.layout {
+
+    display: flex;
+    height: 100vh;
+
+}
+
+
+.sidebar {
+
+    width: 240px;
+    background: #1e3a8a;
+    color: white;
+    padding: 25px;
+
+}
+
+
+.sidebar h2 {
+
+    margin-bottom: 30px;
+
+}
+
+
+.sidebar a {
+
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    margin: 8px 0;
+
+}
+
+
+.sidebar a:hover {
+
+    background: #2563eb;
+
+}
+
+
+.sidebar button {
+
+    margin-top: 30px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+
+}
+
+
+
+.content {
+
+    flex: 1;
+    padding: 40px;
+
+}
+
+
+
+.cards {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+}
+
+
+
+.card {
+
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.card p {
+
+    font-size: 30px;
+    color: #2563eb;
+
+}

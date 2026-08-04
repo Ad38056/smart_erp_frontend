@@ -1,0 +1,70 @@
+body {
+
+    background: #f4f7fb;
+
+}
+
+
+.customer-form {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+.customer-form input {
+
+    padding: 12px;
+
+    margin: 5px;
+
+}
+
+
+
+button {
+
+    padding: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+
+}
+
+
+
+#customers {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 20px;
+
+}
+
+
+
+.customer-card {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px #ddd;
+
+}

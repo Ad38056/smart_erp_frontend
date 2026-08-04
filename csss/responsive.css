@@ -1,0 +1,58 @@
+@media(max-width:900px) {
+
+
+    .cards {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+
+    .sidebar {
+
+        width: 180px;
+
+    }
+
+
+
+}
+
+
+
+@media(max-width:600px) {
+
+
+    .layout {
+
+        flex-direction: column;
+
+    }
+
+
+
+    .sidebar {
+
+        width: 100%;
+
+    }
+
+
+
+    .cards {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .login-card {
+
+        width: 90%;
+
+    }
+
+
+}
