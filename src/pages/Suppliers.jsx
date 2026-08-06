@@ -1,0 +1,10 @@
+import React from 'react'
+
+export default function Suppliers() {
+  return (
+    <div>
+      <h1>Suppliers</h1>
+      <p>Move your `supliers.html` markup into this component.</p>
+    </div>
+  )
+}

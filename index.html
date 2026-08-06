@@ -1,81 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Smart ERP System</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-</head>
-
-
-<body>
-
-
-    <div class="home-container">
-
-
-        <div class="hero">
-
-
-            <img src="assets/logo.png" class="logo" alt="Smart ERP Logo">
-
-
-            <h1>
-                Smart ERP System
-            </h1>
-
-
-            <p>
-                Manage your business operations easily with
-                smart inventory, customers, suppliers and orders management.
-            </p>
-
-
-            <div class="buttons">
-
-
-                <a href="login.html" class="btn">
-                    Login
-                </a>
-
-
-                <a href="login.html" class="btn secondary">
-                    Get Started
-                </a>
-
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <script src="js/auth.js"></script>
-
-    <script>
-
-        const token = getToken();
-
-
-        if (token) {
-
-            // If already logged in
-            window.location.href = "dashboard.html";
-
-        }
-
-
-    </script>
-
-
-</body>
-
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

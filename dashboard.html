@@ -2,90 +2,284 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Smart ERP Dashboard</title>
 
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dashboard.css">
 
 </head>
 
-<body>
+
+<body onload="checkAuth()">
 
 
-    <div class="layout">
+<div class="layout">
 
 
-        <!-- Sidebar -->
-        <aside class="sidebar">
+    <!-- Sidebar -->
 
-            <h2>Smart ERP</h2>
+    <aside class="sidebar">
 
-            <a href="dashboard.html">Dashboard</a>
-            <a href="products.html">Products</a>
-            <a href="customers.html">Customers</a>
-            <a href="suppliers.html">Suppliers</a>
-            <a href="orders.html">Orders</a>
-            <a href="profile.html">Profile</a>
+        <div class="brand">
 
-            <button onclick="logout()">
-                Logout
-            </button>
+            <h2>🚀 Smart ERP</h2>
 
-        </aside>
+        </div>
 
 
+        <nav>
 
-        <!-- Main -->
-        <main class="content">
-
-
-            <h1>
-                Dashboard
-            </h1>
+            <a class="active" href="dashboard.html">
+                📊 Dashboard
+            </a>
 
 
-            <div class="cards">
+            <a href="products.html">
+                📦 Products
+            </a>
 
 
-                <div class="card">
-                    <h3>Products</h3>
-                    <p id="productCount">0</p>
-                </div>
+            <a href="customers.html">
+                👥 Customers
+            </a>
 
 
-                <div class="card">
-                    <h3>Customers</h3>
-                    <p>0</p>
-                </div>
+            <a href="suppliers.html">
+                🚚 Suppliers
+            </a>
 
 
-                <div class="card">
-                    <h3>Orders</h3>
-                    <p>0</p>
-                </div>
+            <a href="orders.html">
+                🛒 Orders
+            </a>
 
 
-                <div class="card">
-                    <h3>Sales</h3>
-                    <p>$0</p>
-                </div>
+            <a href="profile.html">
+                👤 Profile
+            </a>
+
+
+        </nav>
+
+
+        <button class="logout" onclick="logout()">
+            Logout
+        </button>
+
+
+    </aside>
+
+
+
+
+
+    <!-- Main Content -->
+
+    <main class="main">
+
+
+        <header class="header">
+
+
+            <div>
+
+                <h1>
+                    Welcome Back, Aderajew 👋
+                </h1>
+
+                <p>
+                    Manage your business with Smart ERP System
+                </p>
+
+            </div>
+
+
+            <div class="user">
+
+                <img src="assets/logo.png">
+
+            </div>
+
+
+        </header>
+
+
+
+
+
+        <!-- Statistics Cards -->
+
+
+        <section class="cards">
+
+
+            <div class="card blue">
+
+                <h3>
+                    📦 Products
+                </h3>
+
+                <h1 id="productsCount">
+                    0
+                </h1>
+
+                <p>
+                    Total Inventory
+                </p>
+
+            </div>
+
+
+
+
+
+            <div class="card green">
+
+                <h3>
+                    👥 Customers
+                </h3>
+
+                <h1>
+                    0
+                </h1>
+
+                <p>
+                    Registered Customers
+                </p>
+
+            </div>
+
+
+
+
+
+            <div class="card orange">
+
+                <h3>
+                    🛒 Orders
+                </h3>
+
+                <h1>
+                    0
+                </h1>
+
+                <p>
+                    Total Orders
+                </p>
+
+            </div>
+
+
+
+
+
+            <div class="card purple">
+
+                <h3>
+                    💰 Sales
+                </h3>
+
+                <h1>
+                    $0
+                </h1>
+
+                <p>
+                    Revenue
+                </p>
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+        <!-- Bottom Section -->
+
+
+        <section class="bottom">
+
+
+            <div class="box">
+
+
+                <h2>
+                    Recent Activity
+                </h2>
+
+
+                <p>
+                    ✅ System started successfully
+                </p>
+
+
+                <p>
+                    🔐 User login completed
+                </p>
+
+
+                <p>
+                    📦 Product module ready
+                </p>
 
 
             </div>
 
 
-        </main>
 
 
-    </div>
+            <div class="box">
+
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+
+                <button>
+                    + Add Product
+                </button>
+
+
+                <button>
+                    + Add Customer
+                </button>
+
+
+                <button>
+                    + Create Order
+                </button>
 
 
 
-    <script src="js/auth.js"></script>
-    <script src="js/dashboard.js"></script>
+            </div>
+
+
+
+        </section>
+
+
+
+    </main>
+
+
+</div>
+
+
+
+
+
+<script src="js/auth.js"></script>
+
+<script src="js/dashboard.js"></script>
+
 
 </body>
 
