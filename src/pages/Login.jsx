@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginUser } from "../lib/api";
 import { saveToken, saveUser } from "../lib/auth";
 
@@ -63,6 +63,11 @@ export default function Login() {
           </button>
         </div>
       </form>
+
+      <p style={{ marginTop: 12 }}>
+        Need an account? <Link to="/register">Create account</Link>
+      </p>
+
       {message && (
         <p id="message" style={{ color: "red" }}>
           {message}
