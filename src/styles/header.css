@@ -1,0 +1,19 @@
+.app-header {
+  background: var(--bg);
+  border-bottom: 1px solid rgba(15,23,42,0.06);
+}
+.app-header nav {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+  padding: 12px 16px;
+}
+.app-header a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+.app-header a:hover { text-decoration: underline; }
+.app-header a.login-link { margin-left: auto; }

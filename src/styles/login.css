@@ -1,0 +1,8 @@
+form#loginForm { background:var(--surface); padding:18px; border-radius:var(--radius-md); box-shadow:var(--shadow-sm); }
+form#loginForm div { margin-bottom:12px; }
+label { display:block; font-size:14px; margin-bottom:6px; color:var(--text); }
+input[type="email"], input[type="password"] { width:100%; padding:10px 12px; border:1px solid rgba(15,23,42,0.08); border-radius:var(--radius-sm); box-sizing:border-box; }
+button[type="submit"] { background:var(--primary); color:var(--primary-contrast); border:none; padding:10px 16px; border-radius:var(--radius-sm); cursor:pointer; }
+button[disabled] { opacity:0.6; cursor:default; }
+
+#message { margin-top:12px; }

@@ -18,7 +18,8 @@ export default function Login() {
     setLoading(false);
 
     if (!res.ok) {
-      setMessage(res.error || "Server connection error");
+      const statusMsg = res.status ? `HTTP ${res.status}` : null;
+      setMessage(res.error || statusMsg || "Server connection error");
       return;
     }
 

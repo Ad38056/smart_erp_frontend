@@ -1,4 +1,15 @@
-@import "../csss/styles.css";
+
+@import "./styles/theme.css";
+@import "./styles/styles.css";
+@import "./styles/header.css";
+@import "./styles/home.css";
+@import "./styles/login.css";
+@import "./styles/login-original.css";
+@import "./styles/dashboard-original.css";
+@import "./styles/customers-original.css";
+@import "./styles/products-original.css";
+@import "./styles/suppliers-original.css";
+@import "./styles/responsive-original.css";
 
 :root {
   --app-max-width: 1100px;
@@ -7,10 +18,17 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: #f6f8fb;
+  color: #111827;
 }
 
 main {
   max-width: var(--app-max-width);
   margin: 24px auto;
   padding: 0 16px;
+}
+
+.container {
+  max-width: var(--app-max-width);
+  margin: 0 auto;
 }

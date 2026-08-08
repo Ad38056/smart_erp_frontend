@@ -10,8 +10,13 @@ export async function loginUser(email, password) {
 
     const data = await res.json().catch(() => ({}));
 
+    if (!res.ok) {
+      console.error('API login error', { status: res.status, data });
+    }
+
     return { ok: res.ok, status: res.status, data };
   } catch (error) {
+    console.error('Network/API error', error);
     return { ok: false, error: error.message };
   }
 }

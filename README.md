@@ -18,5 +18,5 @@ npm run dev
 
 Notes
 
-- Original static files (`*.html`, `js/`, `assets/`, `csss/`) remain in the workspace so you can incrementally migrate markup and logic into `src/pages` and `src/components`.
-- Import your existing CSS from the `csss/` folder (already referenced by `src/index.css`).
+-- Original static files (`*.html`, `js/`, `assets/`) remain in the workspace so you can incrementally migrate markup and logic into `src/pages` and `src/components`.
+-- Project CSS has been migrated into `src/styles/` and is imported from `src/index.css`.

@@ -8,7 +8,6 @@
     }
 
 
-
     .sidebar {
 
         width: 180px;
@@ -16,9 +15,7 @@
     }
 
 
-
 }
-
 
 
 @media(max-width:600px) {
@@ -31,7 +28,6 @@
     }
 
 
-
     .sidebar {
 
         width: 100%;
@@ -39,13 +35,11 @@
     }
 
 
-
     .cards {
 
         grid-template-columns: 1fr;
 
     }
-
 
 
     .login-card {

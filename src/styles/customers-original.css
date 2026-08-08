@@ -1,22 +1,21 @@
 body {
 
-    background: #f4f7fb;
+    background: var(--bg);
 
 }
 
 
 .customer-form {
 
-    background: white;
+    background: var(--surface);
 
     padding: 20px;
 
-    border-radius: 10px;
+    border-radius: var(--radius-md);
 
     margin-bottom: 30px;
 
 }
-
 
 
 .customer-form input {
@@ -25,24 +24,26 @@ body {
 
     margin: 5px;
 
-}
+    border:1px solid rgba(15,23,42,0.06);
 
+    border-radius:var(--radius-sm);
+
+}
 
 
 button {
 
     padding: 12px;
 
-    background: #2563eb;
+    background: var(--primary);
 
-    color: white;
+    color: var(--primary-contrast);
 
     border: none;
 
     cursor: pointer;
 
 }
-
 
 
 #customers {
@@ -56,15 +57,14 @@ button {
 }
 
 
-
 .customer-card {
 
-    background: white;
+    background: var(--surface);
 
     padding: 20px;
 
-    border-radius: 10px;
+    border-radius: var(--radius-md);
 
-    box-shadow: 0 5px 15px #ddd;
+    box-shadow: var(--shadow-sm);
 
 }
