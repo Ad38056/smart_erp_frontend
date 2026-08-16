@@ -44,6 +44,12 @@ export default function Dashboard() {
     { label: 'Products', value: Number(overview.totalProducts || 0).toLocaleString(), change: '94.2%', tone: 'positive' },
   ];
 
+  const chartWidgets = [
+    { label: 'Sales trend', value: '+18.2%', points: [34, 42, 38, 58, 62, 72, 88], color: '#60a5fa' },
+    { label: 'Returns', value: '4.8%', points: [20, 26, 24, 32, 28, 26, 22], color: '#22c55e' },
+    { label: 'Fulfillment', value: '96%', points: [40, 48, 52, 58, 64, 76, 96], color: '#8b5cf6' },
+  ];
+
   return (
     <div className="page-section">
       <div className="section-heading">
@@ -59,6 +65,25 @@ export default function Dashboard() {
             <span>{card.label}</span>
             <strong>{card.value}</strong>
             <em className={card.tone}>{card.change}</em>
+          </div>
+        ))}
+      </div>
+
+      <div className="performance-grid">
+        {chartWidgets.map((widget) => (
+          <div key={widget.label} className="chart-card">
+            <div className="chart-card-header">
+              <span>{widget.label}</span>
+              <strong>{widget.value}</strong>
+            </div>
+            <div className="mini-bars" aria-label={widget.label}>
+              {widget.points.map((point, index) => (
+                <span
+                  key={`${widget.label}-${index}`}
+                  style={{ height: `${point}%`, background: `linear-gradient(180deg, ${widget.color}, rgba(37,99,235,0.25))` }}
+                />
+              ))}
+            </div>
           </div>
         ))}
       </div>
