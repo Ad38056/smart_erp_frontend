@@ -49,10 +49,10 @@ export default function App() {
 
         <div className="sidebar-footer">
           <div className="mini-identity">
-            <div className="avatar-mini">AA</div>
+            <div className="avatar-mini">ERP</div>
             <div>
-              <strong>Aderajew</strong>
-              <span>Addis Ababa</span>
+              <strong>Operations</strong>
+              <span>Business Suite</span>
             </div>
           </div>
         </div>
