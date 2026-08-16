@@ -3,17 +3,21 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <header style={{background:'#f5f5f5', padding:'12px 16px'}}>
-      <nav style={{maxWidth:1100, margin:'0 auto', display:'flex', gap:12}}>
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/customers">Customers</Link>
-        <Link to="/products">Products</Link>
-        <Link to="/orders">Orders</Link>
-        <Link to="/suppliers">Suppliers</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/login" style={{marginLeft:'auto'}}>Login</Link>
-      </nav>
+    <header className="topbar">
+      <div className="topbar-inner">
+        <div className="topbar-search">
+          <span>⌕</span>
+          <input type="text" placeholder="Search reports, orders, customers..." />
+        </div>
+
+        <div className="topbar-actions">
+          <button className="ghost-button" type="button">Alerts</button>
+          <button className="primary-button small-button" type="button">New report</button>
+          <Link to="/login" className="login-button">
+            Login
+          </Link>
+        </div>
+      </div>
     </header>
   )
 }
