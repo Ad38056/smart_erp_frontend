@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { loginUser, registerUser } from '../lib/api'
+import { saveToken, saveUser } from '../lib/auth'
 
 export default function Register() {
   const [form, setForm] = useState({
     name: '',
     email: '',
-    company: '',
     password: '',
-    role: 'Operations Manager',
   })
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
@@ -23,9 +23,27 @@ export default function Register() {
     setLoading(true)
     setMessage('')
 
-    await new Promise((resolve) => setTimeout(resolve, 500))
-
+    const res = await registerUser(form.name, form.email, form.password)
     setLoading(false)
+
+    if (!res.ok) {
+      setMessage(res.error || 'Registration failed')
+      return
+    }
+
+    const data = res.data || {}
+    if (data.user) {
+      saveUser(data.user)
+    }
+
+    const loginRes = await loginUser(form.email, form.password)
+    if (!loginRes.ok || !loginRes.data?.token) {
+      setMessage('Registration successful. Please log in manually.')
+      return
+    }
+
+    saveToken(loginRes.data.token)
+    saveUser(loginRes.data.user || data.user || {})
     setMessage('Registration successful. Redirecting to dashboard...')
 
     setTimeout(() => {
@@ -67,17 +85,6 @@ export default function Register() {
             required
           />
 
-          <label htmlFor="company">Company name</label>
-          <input
-            id="company"
-            name="company"
-            type="text"
-            value={form.company}
-            onChange={handleChange}
-            placeholder="Your company"
-            required
-          />
-
           <label htmlFor="email">Email address</label>
           <input
             id="email"
@@ -88,20 +95,6 @@ export default function Register() {
             placeholder="name@company.com"
             required
           />
-
-          <label htmlFor="role">Role</label>
-          <select
-            id="role"
-            name="role"
-            value={form.role}
-            onChange={handleChange}
-          >
-            <option>Operations Manager</option>
-            <option>Finance Lead</option>
-            <option>Sales Manager</option>
-            <option>Inventory Specialist</option>
-            <option>Executive</option>
-          </select>
 
           <label htmlFor="password">Password</label>
           <input

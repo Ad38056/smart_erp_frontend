@@ -1,13 +1,25 @@
-import React from 'react'
-
-const products = [
-  { name: 'Ethiopian Coffee Beans', stock: 184, price: 'Br 420', status: 'In stock' },
-  { name: 'Bole Water Filter', stock: 86, price: 'Br 130', status: 'Low stock' },
-  { name: 'Addis Office Chair', stock: 250, price: 'Br 95', status: 'In stock' },
-  { name: 'Premium Cooking Oil', stock: 34, price: 'Br 55', status: 'Low stock' },
-]
+import React, { useEffect, useState } from 'react';
+import { fetchProducts } from '../lib/api';
+import { getToken } from '../lib/auth';
 
 export default function Products() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const token = getToken();
+    if (!token) {
+      window.location.href = '/login';
+      return;
+    }
+
+    async function loadProducts() {
+      const res = await fetchProducts();
+      if (res.ok) setProducts(res.data || []);
+    }
+
+    loadProducts();
+  }, []);
+
   return (
     <div className="page-section">
       <div className="section-heading">
@@ -15,27 +27,26 @@ export default function Products() {
           <span className="eyebrow">Catalog</span>
           <h1>Products</h1>
         </div>
-        <button className="primary-button small-button">+ New product</button>
       </div>
 
       <div className="product-grid">
         {products.map((product) => (
-          <article key={product.name} className="product-card">
+          <article key={product.id} className="product-card">
             <div className="product-thumb" aria-hidden="true">◫</div>
             <div className="product-topline">
               <h3>{product.name}</h3>
-              <span className={`status-badge ${product.status.toLowerCase().replace(/\s+/g, '-')}`}>
-                {product.status}
+              <span className={`status-badge ${product.stock > 0 ? 'in-stock' : 'low-stock'}`}>
+                {product.stock > 0 ? 'In stock' : 'Low stock'}
               </span>
             </div>
             <p>{product.stock} units available</p>
+            <p>{product.category || 'Uncategorized'}</p>
             <div className="product-footer">
-              <strong>{product.price}</strong>
-              <button className="secondary-button small-button">Manage</button>
+              <strong>Br {Number(product.price || 0).toLocaleString()}</strong>
             </div>
           </article>
         ))}
       </div>
     </div>
-  )
+  );
 }

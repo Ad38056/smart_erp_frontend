@@ -1,13 +1,25 @@
-import React from 'react'
-
-const orderRows = [
-  { id: '#SO-1024', customer: 'Addis Mart', total: 'Br 2,400', status: 'Processing' },
-  { id: '#SO-1029', customer: 'Aynalem Foods', total: 'Br 1,120', status: 'Shipped' },
-  { id: '#SO-1032', customer: 'Ethio Supply', total: 'Br 3,760', status: 'Completed' },
-  { id: '#SO-1041', customer: 'Bole Retail Group', total: 'Br 860', status: 'Pending' },
-]
+import React, { useEffect, useState } from 'react';
+import { fetchOrders } from '../lib/api';
+import { getToken } from '../lib/auth';
 
 export default function Orders() {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const token = getToken();
+    if (!token) {
+      window.location.href = '/login';
+      return;
+    }
+
+    async function loadOrders() {
+      const res = await fetchOrders();
+      if (res.ok) setOrders(res.data || []);
+    }
+
+    loadOrders();
+  }, []);
+
   return (
     <div className="page-section">
       <div className="section-heading">
@@ -15,7 +27,6 @@ export default function Orders() {
           <span className="eyebrow">Sales</span>
           <h1>Orders</h1>
         </div>
-        <button className="secondary-button small-button">Filter</button>
       </div>
 
       <div className="panel table-panel">
@@ -29,21 +40,17 @@ export default function Orders() {
             </tr>
           </thead>
           <tbody>
-            {orderRows.map((order) => (
+            {orders.map((order) => (
               <tr key={order.id}>
-                <td>{order.id}</td>
-                <td>{order.customer}</td>
-                <td>{order.total}</td>
-                <td>
-                  <span className={`status-badge ${order.status.toLowerCase().replace(/\s+/g, '-')}`}>
-                    {order.status}
-                  </span>
-                </td>
+                <td>#{order.id}</td>
+                <td>{order.customer?.name || 'Customer'}</td>
+                <td>Br {Number(order.total || 0).toLocaleString()}</td>
+                <td>{order.status}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </div>
-  )
+  );
 }

@@ -1,13 +1,25 @@
-import React from 'react'
-
-const suppliers = [
-  { name: 'Ethiopian Industry Hub', category: 'Manufacturing', onTime: '98%', status: 'Verified' },
-  { name: 'Abyssinia Packaging', category: 'Packaging', onTime: '92%', status: 'Review' },
-  { name: 'Addis Trade Supply', category: 'Office Goods', onTime: '96%', status: 'Verified' },
-  { name: 'Nile Logistics', category: 'Shipping', onTime: '89%', status: 'Watchlist' },
-]
+import React, { useEffect, useState } from 'react';
+import { fetchSuppliers } from '../lib/api';
+import { getToken } from '../lib/auth';
 
 export default function Suppliers() {
+  const [suppliers, setSuppliers] = useState([]);
+
+  useEffect(() => {
+    const token = getToken();
+    if (!token) {
+      window.location.href = '/login';
+      return;
+    }
+
+    async function loadSuppliers() {
+      const res = await fetchSuppliers();
+      if (res.ok) setSuppliers(res.data || []);
+    }
+
+    loadSuppliers();
+  }, []);
+
   return (
     <div className="page-section">
       <div className="section-heading">
@@ -15,26 +27,21 @@ export default function Suppliers() {
           <span className="eyebrow">Procurement</span>
           <h1>Suppliers</h1>
         </div>
-        <button className="primary-button small-button">+ Add supplier</button>
       </div>
 
       <div className="supplier-grid">
         {suppliers.map((supplier) => (
-          <div key={supplier.name} className="panel supplier-card">
+          <div key={supplier.id} className="panel supplier-card">
             <div className="supplier-header">
               <h3>{supplier.name}</h3>
-              <span className={`status-badge ${supplier.status.toLowerCase().replace(/\s+/g, '-')}`}>
-                {supplier.status}
-              </span>
             </div>
-            <p>{supplier.category}</p>
-            <div className="supplier-stats">
-              <span>On-time delivery</span>
-              <strong>{supplier.onTime}</strong>
-            </div>
+            <p>{supplier.company || 'No company'}</p>
+            <p>{supplier.email || 'No email'}</p>
+            <p>{supplier.phone || 'No phone'}</p>
+            <p>{supplier.address || 'No address'}</p>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }
