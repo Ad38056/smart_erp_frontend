@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import heroImage from '../../assets/IMG_20260816_142247_263.jpg'
 
 const overviewStats = [
   { label: 'Revenue', value: '$148.6K', trend: '+12.4%' },
@@ -43,8 +44,8 @@ export default function Home() {
         <div className="hero-visual">
           <img
             className="hero-image"
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80"
-            alt="Business professionals collaborating in an office"
+            src={heroImage}
+            alt="Business professional portrait"
           />
 
           <div className="floating-card floating-card-top">
