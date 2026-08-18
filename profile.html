@@ -12,10 +12,6 @@
 
 <body>
 
-    <div class="top-actions">
-        <button class="top-click" onclick="topClick('Profile')">Click</button>
-    </div>
-
 
     <div class="profile-card">
         <div class="profile-header">
@@ -28,12 +24,7 @@
         </div>
 
         <div class="profile-actions">
-            <button id="btnPullUsers" class="btn">Pull Users</button>
             <button onclick="logout()" class="btn secondary">Logout</button>
-        </div>
-
-        <div class="user-list" id="userList" aria-live="polite">
-            <!-- Users pulled from API will appear here -->
         </div>
     </div>
 
@@ -41,8 +32,6 @@
 
     <script src="js/auth.js"></script>
     <script src="js/utils.js"></script>
-    <script src="js/profile-users.js"></script>
-    <script src="js/top-click.js"></script>
 
 </body>
 
