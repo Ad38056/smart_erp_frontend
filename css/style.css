@@ -1,0 +1,30 @@
+/* Global button styles applied across pages */
+button,
+.panel button,
+.product-form button,
+.customer-form button,
+.profile-card button,
+.supplier-card button,
+.product-card button {
+    padding: 12px 20px;
+    background: #EEACFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+/* Ensure anchors that look like buttons also get a visible focus/hover */
+a.button-like {
+    display:inline-block;
+    padding:12px 20px;
+    background:#EEACFF;
+    color:white;
+    border-radius:10px;
+    text-decoration:none;
+}
+
+a.button-like:hover, button:hover {
+    opacity:0.95;
+}

@@ -92,8 +92,29 @@ h1 {
 
 /* Stock */
 
+
 .product-card p:nth-child(4) {
 
     font-weight: bold;
+
+}
+
+/* Buttons */
+
+.product-form button, .product-card button {
+
+    padding: 12px 20px;
+
+    background: #EEACFF;
+
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+
+    margin: 10px 0;
+
+    border-radius: 10px;
 
 }

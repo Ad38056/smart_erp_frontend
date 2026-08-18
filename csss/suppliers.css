@@ -11,13 +11,33 @@
 
 
 .supplier-card {
-
+ 
     background: white;
-
+ 
     padding: 25px;
-
+ 
     border-radius: 12px;
-
+ 
     box-shadow: 0 5px 15px #ddd;
+ 
+}
+
+/* Buttons */
+
+button, .supplier-card button {
+
+    padding: 12px 20px;
+
+    background: #EEACFF;
+
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+
+    margin: 10px 0;
+
+    border-radius: 10px;
 
 }

@@ -31,15 +31,19 @@ body {
 
 button {
 
-    padding: 12px;
+    padding: 12px 20px;
 
-    background: #2563eb;
+    background: #EEACFF;
 
     color: white;
 
     border: none;
 
     cursor: pointer;
+
+    margin: 10px 0;
+
+    border-radius: 10px;
 
 }
 
