@@ -28,3 +28,27 @@ a.button-like {
 a.button-like:hover, button:hover {
     opacity:0.95;
 }
+
+/* Top actions bar: fixed top-right horizontal layout */
+.top-actions {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 9999;
+}
+
+.top-actions .top-click {
+    margin: 0;
+    padding: 10px 14px;
+    background: #EEACFF;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    cursor: pointer;
+}
