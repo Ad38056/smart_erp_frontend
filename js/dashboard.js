@@ -8,11 +8,6 @@ if (!token) {
 }
 
 
-function quickAction(page) {
-
-    window.location.href = page;
-
-}
 
 
 async function loadDashboard() {

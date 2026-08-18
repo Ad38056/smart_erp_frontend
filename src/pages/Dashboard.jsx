@@ -5,13 +5,6 @@ import { getToken } from '../lib/auth';
 export default function Dashboard() {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [activeAction, setActiveAction] = useState('product');
-
-  const quickActions = [
-    { key: 'product', label: 'Add Product', subtitle: 'Create a new item in catalog' },
-    { key: 'customer', label: 'Add Customer', subtitle: 'Register a new client' },
-    { key: 'order', label: 'Create Order', subtitle: 'Launch a sales order' },
-  ];
 
   useEffect(() => {
     const token = getToken();
@@ -88,47 +81,6 @@ export default function Dashboard() {
         ))}
       </div>
 
-      <div className="quick-actions panel">
-        <div className="panel-header">
-          <h3>Quick Actions</h3>
-          <span>Fast create</span>
-        </div>
-
-        <div className="quick-action-list">
-          {quickActions.map((action) => (
-            <button
-              key={action.key}
-              type="button"
-              className={`quick-action-button ${activeAction === action.key ? 'active' : ''}`}
-              onClick={() => setActiveAction(action.key)}
-            >
-              <span>{action.label}</span>
-              <small>{action.subtitle}</small>
-            </button>
-          ))}
-        </div>
-
-        <div className="quick-action-panel">
-          {activeAction === 'product' && (
-            <div>
-              <h4>Add Product</h4>
-              <p>Use this to create a new inventory item with price, category, and stock.</p>
-            </div>
-          )}
-          {activeAction === 'customer' && (
-            <div>
-              <h4>Add Customer</h4>
-              <p>Use this to register a client and capture contact details.</p>
-            </div>
-          )}
-          {activeAction === 'order' && (
-            <div>
-              <h4>Create Order</h4>
-              <p>Use this to launch a new sales order with customer and item details.</p>
-            </div>
-          )}
-        </div>
-      </div>
 
       <div className="content-grid dashboard-grid">
         <div className="panel panel-large">

@@ -18,32 +18,30 @@
 
 
     <div class="profile-card">
+        <div class="profile-header">
+            <img id="avatar" src="assets/logo.png" alt="avatar">
+            <div class="profile-info">
+                <h1 id="name">User</h1>
+                <p id="role">Role</p>
+                <p class="email"><strong id="email">user@example.com</strong></p>
+            </div>
+        </div>
 
+        <div class="profile-actions">
+            <button id="btnPullUsers" class="btn">Pull Users</button>
+            <button onclick="logout()" class="btn secondary">Logout</button>
+        </div>
 
-        <h1>User Profile</h1>
-
-
-        <img src="assets/logo.png" width="100">
-
-
-        <h3 id="name"></h3>
-
-        <p id="email"></p>
-
-        <p id="role"></p>
-
-
-        <button onclick="logout()">
-            Logout
-        </button>
-
-
+        <div class="user-list" id="userList" aria-live="polite">
+            <!-- Users pulled from API will appear here -->
+        </div>
     </div>
 
 
 
     <script src="js/auth.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/profile-users.js"></script>
     <script src="js/top-click.js"></script>
 
 </body>

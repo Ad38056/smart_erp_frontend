@@ -62,6 +62,21 @@ button:hover, .btn:hover{opacity:0.95}
 /* Supplier / product / customer cards */
 .product-card, .customer-card, .supplier-card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 16px var(--card-shadow);margin-bottom:12px}
 
+/* Profile card */
+.profile-card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 16px var(--card-shadow);max-width:900px;margin:18px auto}
+.profile-header{display:flex;gap:16px;align-items:center}
+.profile-header img#avatar{width:96px;height:96px;border-radius:12px;object-fit:cover}
+.profile-info h1{font-size:20px;margin-bottom:4px}
+.profile-info p{color:var(--muted);margin:2px 0}
+.profile-actions{display:flex;gap:10px;margin-top:12px}
+.profile-actions .btn.secondary{background:#fff;color:var(--muted);border:1px solid #e6e9ef}
+.user-list{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.user-row{display:flex;gap:12px;align-items:center;padding:10px;border-radius:10px;background:#fafafa;border:1px solid #f0f2f5}
+.user-row img{width:48px;height:48px;border-radius:8px;object-fit:cover}
+.user-meta strong{display:block}
+.user-meta small{color:var(--muted);display:block}
+.user-role{font-size:12px;color:#666;margin-top:6px}
+
 /* Top-right link row for quick nav (if needed) */
 .top-links{display:flex;gap:10px;align-items:center}
 .top-links a{padding:8px 12px;background:#fff;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.04);text-decoration:none}
