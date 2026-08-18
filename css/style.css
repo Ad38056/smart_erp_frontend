@@ -1,54 +1,78 @@
-/* Global button styles applied across pages */
-button,
-.panel button,
-.product-form button,
-.customer-form button,
-.profile-card button,
-.supplier-card button,
-.product-card button {
-    padding: 12px 20px;
-    background: #EEACFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin: 10px 0;
-    border-radius: 10px;
+/* Unified interface CSS for Smart ERP Business Suite */
+:root{
+    --primary: #EEACFF; /* bright blue/lilac as requested */
+    --accent: #2563eb;
+    --bg: #f4f7fb;
+    --sidebar-bg: #0f172a;
+    --muted: #6b7280;
+    --card-shadow: rgba(2,6,23,0.06);
 }
 
-/* Ensure anchors that look like buttons also get a visible focus/hover */
-a.button-like {
-    display:inline-block;
-    padding:12px 20px;
-    background:#EEACFF;
-    color:white;
-    border-radius:10px;
-    text-decoration:none;
-}
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family: "Segoe UI", Arial, sans-serif;background:var(--bg);color:#0f172a}
 
-a.button-like:hover, button:hover {
-    opacity:0.95;
-}
+a{color:inherit}
 
-/* Top actions bar: fixed top-right horizontal layout */
-.top-actions {
-    position: fixed;
-    top: 12px;
-    right: 12px;
-    display: flex;
-    flex-direction: row;
-    gap: 8px;
-    align-items: center;
-    justify-content: flex-end;
-    z-index: 9999;
-}
+/* Top actions fixed bar */
+.top-actions{position:fixed;top:12px;right:12px;display:flex;gap:8px;align-items:center;z-index:9999}
+.top-actions .top-click{padding:10px 14px;background:var(--primary);color:#fff;border-radius:8px;border:none;box-shadow:0 4px 10px rgba(0,0,0,0.12);cursor:pointer}
+.top-actions .top-click:hover{opacity:0.95}
 
-.top-actions .top-click {
-    margin: 0;
-    padding: 10px 14px;
-    background: #EEACFF;
-    color: #fff;
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-    cursor: pointer;
+/* Layout */
+.layout{display:flex;min-height:100vh}
+.sidebar{width:260px;background:var(--sidebar-bg);color:#fff;padding:24px;display:flex;flex-direction:column}
+.brand h2{font-size:18px;margin-bottom:12px}
+nav{margin-top:8px}
+nav a{display:block;padding:12px;margin:6px 0;color:#cbd5e1;text-decoration:none;border-radius:8px}
+nav a.active, nav a:hover{background:var(--accent);color:#fff}
+.logout{margin-top:auto;padding:12px;border-radius:8px;border:none;background:#ef4444;color:#fff;cursor:pointer}
+
+/* Main content area - account for fixed top-actions by padding-top */
+.main{flex:1;padding:70px 28px 28px;overflow:auto}
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.header h1{font-size:22px;color:#0f172a}
+.header p{color:var(--muted)}
+.user img{width:48px}
+
+/* Cards and statistics */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:18px}
+.card{background:var(--accent);color:#fff;padding:18px;border-radius:12px;box-shadow:0 8px 20px var(--card-shadow);display:flex;flex-direction:column;justify-content:space-between;min-height:110px}
+.card h3{font-size:14px;margin-bottom:6px}
+.card .value{font-size:26px;font-weight:700}
+.card.green{background:#16a34a}
+.card.orange{background:#ea580c}
+.card.purple{background:#9333ea}
+
+/* Dashboard grid and panels */
+.dashboard-grid{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-top:20px}
+.panel{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 18px var(--card-shadow)}
+.panel h2{margin-bottom:12px}
+.panel button{width:100%;padding:12px 20px;margin:10px 0;border:none;border-radius:10px;background:var(--primary);color:#fff;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.08)}
+
+/* Forms & tables */
+input[type=text], input[type=number], input, textarea, select{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ef;margin:8px 0}
+.product-form, .customer-form, .order-form{background:#fff;padding:18px;border-radius:10px;box-shadow:0 6px 16px var(--card-shadow)}
+
+/* Buttons (global) */
+button, .btn{padding:12px 20px;background:var(--primary);color:#fff;border:none;border-radius:10px;cursor:pointer}
+button:hover, .btn:hover{opacity:0.95}
+
+/* Supplier / product / customer cards */
+.product-card, .customer-card, .supplier-card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 6px 16px var(--card-shadow);margin-bottom:12px}
+
+/* Top-right link row for quick nav (if needed) */
+.top-links{display:flex;gap:10px;align-items:center}
+.top-links a{padding:8px 12px;background:#fff;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.04);text-decoration:none}
+
+/* Responsive */
+@media(max-width:900px){
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .dashboard-grid{grid-template-columns:1fr}
+  .sidebar{width:80px;padding:14px}
+}
+@media(max-width:600px){
+  .cards{grid-template-columns:1fr}
+  .top-actions{right:8px;top:8px}
 }
